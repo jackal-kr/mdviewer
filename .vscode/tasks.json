@@ -1,0 +1,34 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Markdown Viewer: Build",
+            "type": "shell",
+            "command": "meson compile -C builddir",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Markdown Viewer: Package (.deb)",
+            "type": "shell",
+            "command": "meson compile -C builddir package",
+            "group": "build",
+            "dependsOn": "Markdown Viewer: Build",
+            "problemMatcher": []
+        },
+        {
+            "label": "Markdown Viewer: Install (.deb)",
+            "type": "shell",
+            "command": "sudo apt install \"$(realpath builddir/markdown-viewer_*.deb)\"",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "dependsOn": "Markdown Viewer: Package (.deb)",
+            "dependsOrder": "sequence",
+            "problemMatcher": []
+        }
+    ]
+}

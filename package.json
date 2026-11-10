@@ -1,0 +1,7 @@
+{
+  "private": true,
+  "description": "Build-time source for the bundled Markdown parser used by Markdown Viewer",
+  "devDependencies": {
+    "markdown-it": "14.3.2"
+  }
+}

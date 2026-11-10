@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Markdown Viewer
+Comment=Read Markdown documents
+Exec=mdviewer %F
+Icon=io.github.jackal_kr.MarkdownViewer
+Terminal=false
+Categories=Utility;TextEditor;Viewer;
+MimeType=text/markdown;text/x-markdown;
+StartupNotify=true
+StartupWMClass=io.github.jackal_kr.MarkdownViewer

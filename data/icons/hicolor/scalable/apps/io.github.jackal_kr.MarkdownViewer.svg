@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="tile" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#303b50"/><stop offset="1" stop-color="#111722"/>
+    </linearGradient>
+    <linearGradient id="page" x1="0" y1="0" x2="0.9" y2="1">
+      <stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#e8edf5"/>
+    </linearGradient>
+    <linearGradient id="eye" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#49b7ff"/><stop offset="1" stop-color="#1760df"/>
+    </linearGradient>
+  </defs>
+  <rect x="3" y="3" width="122" height="122" rx="27" fill="url(#tile)"/>
+  <path d="M29 20h47l22 22v60a7 7 0 0 1-7 7H29a7 7 0 0 1-7-7V27a7 7 0 0 1 7-7z" fill="url(#page)"/>
+  <path d="M76 20v16a6 6 0 0 0 6 6h16z" fill="#c6d0df"/>
+  <path d="M35 36h9l8 11 8-11h9v27h-9V49l-8 10-8-10v14h-9z" fill="#202938"/>
+  <path d="M82 37v15h6l-10 11-10-11h6V37z" fill="#202938"/>
+  <g fill="#7b899f">
+    <rect x="31" y="70" width="59" height="5" rx="2.5"/>
+    <rect x="31" y="81" width="46" height="5" rx="2.5"/>
+    <rect x="31" y="92" width="29" height="5" rx="2.5"/>
+  </g>
+  <path d="M80 74c-12 0-22 9-27 16 5 7 15 16 27 16s22-9 27-16c-5-7-15-16-27-16z" fill="url(#eye)"/>
+  <circle cx="80" cy="90" r="10" fill="#fff"/><circle cx="80" cy="90" r="5" fill="#202938"/>
+</svg>
