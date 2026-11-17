@@ -1,3 +1,22 @@
+/* SPDX-License-Identifier: GPL-3.0-or-later
+ *
+ * Markdown Viewer - a lightweight GTK Markdown viewer
+ * Copyright (C) 2026 JOD
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
 using GLib;
 using Gtk;
 using WebKit;
@@ -23,6 +42,9 @@ public class MarkdownViewer : Gtk.Application {
     private const double ZOOM_STEP = 0.1;
     private const double ZOOM_MIN = 0.2;
     private const double ZOOM_MAX = 3.0;
+
+    private const string APP_VERSION = "0.1.0";
+    private const string APP_WEBSITE = "https://github.com/jackal-kr/mdviewer";
 
     // Workaround for a Vala vapi bug with Widget.add_controller.
     [CCode (cname = "gtk_widget_add_controller", cheader_filename = "gtk/gtk.h")]
@@ -116,7 +138,7 @@ hr { border: 0; border-top: 1px solid var(--border); }
 
         try {
             Bytes parser_bytes = resources_lookup_data (
-                "/io/github/jackal_kr/MarkdownViewer/markdown-it.min.js",
+                "/io/github/jackal-kr/mdviewer/markdown-it.min.js",
                 ResourceLookupFlags.NONE
             );
             markdown_it_source = (string) parser_bytes.get_data ();
@@ -155,6 +177,10 @@ hr { border: 0; border-top: 1px solid var(--border); }
             }
         });
         add_action (theme_action);
+
+        var about_action = new SimpleAction ("about", null);
+        about_action.activate.connect (() => show_about ());
+        add_action (about_action);
 
         var quit_action = new SimpleAction ("quit", null);
         quit_action.activate.connect (() => this.quit ());
@@ -221,6 +247,28 @@ hr { border: 0; border-top: 1px solid var(--border); }
         base.shutdown ();
     }
 
+    private void show_about () {
+        var about = new Gtk.AboutDialog ();
+        about.set_transient_for (window);
+        about.set_modal (true);
+        about.set_program_name ("Markdown Viewer");
+        about.set_logo_icon_name ("io.github.jackal_kr.MarkdownViewer");
+        about.set_version (APP_VERSION);
+        about.set_comments ("A lightweight viewer for Markdown documents.");
+        about.set_website (APP_WEBSITE);
+        about.set_copyright ("Copyright © 2026 JOD");
+        about.set_license_type (Gtk.License.GPL_3_0);
+        about.add_credit_section (
+            "Bundled software",
+            {
+                "markdown-it (MIT) https://github.com/markdown-it/markdown-it",
+                "linkify-it, mdurl, uc.micro, punycode.js (MIT)",
+                "entities (BSD-2-Clause) https://github.com/fb55/entities"
+            }
+        );
+        about.present ();
+    }
+
     private void ensure_window () {
         if (window != null) {
             return;
@@ -264,6 +312,7 @@ hr { border: 0; border-top: 1px solid var(--border); }
         menu.append_section (null, theme_section);
 
         var quit_section = new GLib.Menu ();
+        quit_section.append ("About Markdown Viewer", "app.about");
         quit_section.append ("Quit", "app.quit");
         menu.append_section (null, quit_section);
 

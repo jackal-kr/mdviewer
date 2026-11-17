@@ -1,4 +1,13 @@
-project('markdown-viewer', 'vala', version: '0.1.0', meson_version: '>= 0.60.0')
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (C) 2026 JOD
+
+project(
+  'markdown-viewer',
+  'vala',
+  version: '0.1.0',
+  license: 'GPL-3.0-or-later',
+  meson_version: '>= 0.60.0',
+)
 
 gtk = dependency('gtk4')
 webkit = dependency('webkitgtk-6.0')
@@ -31,6 +40,13 @@ install_data(
 install_data(
   'data/io.github.jackal_kr.MarkdownViewer.desktop',
   install_dir: get_option('datadir') / 'applications',
+)
+
+# License texts (GPL for this program, notices for the bundled parser)
+install_data(
+  'LICENSE',
+  'THIRD_PARTY_NOTICES.md',
+  install_dir: get_option('datadir') / 'doc' / meson.project_name(),
 )
 
 # Build the application

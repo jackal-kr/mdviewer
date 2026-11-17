@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
-  <gresource prefix="/io/github/jackal_kr/MarkdownViewer">
+  <gresource prefix="/io/github/jackal-kr/mdviewer">
     <file>markdown-it.min.js</file>
   </gresource>
 </gresources>
