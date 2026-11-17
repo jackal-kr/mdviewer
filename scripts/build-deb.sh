@@ -55,7 +55,7 @@ Maintainer: Markdown Viewer contributors
 Homepage: https://github.com/jackal-kr/mdviewer
 Description: GTK application for reading Markdown documents
  A lightweight desktop Markdown viewer using GTK 4 and WebKitGTK.
-Depends: libgtk-4-1, libwebkitgtk-6.0-4
+Depends: libgtk-4-1, libwebkitgtk-6.0-4, libadwaita-1-0
 CONTROL
 
 dpkg-deb --root-owner-group --build "$stage" "$build_dir/$package"

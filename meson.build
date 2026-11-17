@@ -42,6 +42,11 @@ install_data(
   install_dir: get_option('datadir') / 'applications',
 )
 
+install_data(
+  'data/io.github.jackal_kr.MarkdownViewer.metainfo.xml',
+  install_dir: get_option('datadir') / 'metainfo',
+)
+
 # License texts (GPL for this program, notices for the bundled parser)
 install_data(
   'LICENSE',

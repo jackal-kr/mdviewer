@@ -15,6 +15,25 @@ Markdown is rendered by a bundled [markdown-it](https://github.com/markdown-it/m
 - Relative image links resolve against the Markdown file's directory
 - Raw HTML in documents is disabled for safety
 
+## Install
+
+Download the latest package from the [Releases page](https://github.com/jackal-kr/mdviewer/releases).
+
+**Debian / Ubuntu (.deb):**
+
+```bash
+sudo apt install ./markdown-viewer_0.1.0_amd64.deb
+```
+
+**Flatpak (any distribution):** the bundle uses the GNOME 51 runtime from Flathub, which is fetched automatically if missing.
+
+```bash
+flatpak install --user ./markdown-viewer_0.1.0_x86_64.flatpak
+flatpak run io.github.jackal_kr.MarkdownViewer
+```
+
+The Flatpak has read-only access to the host filesystem, so it can show images that sit next to the Markdown file and reload the file when it changes.
+
 ## Build on Ubuntu 26.04
 
 Install build tools and the GTK/WebKit development dependencies if they are not already present:
@@ -39,6 +58,12 @@ To build a Debian package (requires `dpkg-dev`):
 
 ```bash
 meson compile -C build package
+```
+
+To build a Flatpak bundle (requires `flatpak-builder` and the Flathub remote) into `dist/`:
+
+```bash
+./scripts/build-flatpak.sh
 ```
 
 ## Usage

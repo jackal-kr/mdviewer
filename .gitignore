@@ -1,3 +1,7 @@
 node_modules/
 builddir/
 *.bak-*
+dist/
+flatpak/build/
+flatpak/repo/
+.flatpak-builder/

@@ -1,0 +1,32 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (C) 2026 JOD
+id: io.github.jackal_kr.MarkdownViewer
+runtime: org.gnome.Platform
+runtime-version: '51'
+sdk: org.gnome.Sdk
+sdk-extensions:
+  - org.freedesktop.Sdk.Extension.vala
+build-options:
+  append-path: /usr/lib/sdk/vala/bin
+  prepend-ld-library-path: /usr/lib/sdk/vala/lib
+command: mdviewer
+finish-args:
+  - --share=ipc
+  - --socket=fallback-x11
+  - --socket=wayland
+  - --device=dri
+  # Read-only access so relative images next to a Markdown file resolve
+  # and the file can be watched for changes.
+  - --filesystem=host:ro
+modules:
+  - name: mdviewer
+    buildsystem: meson
+    sources:
+      - type: dir
+        path: ..
+        skip:
+          - builddir
+          - node_modules
+          - flatpak/build
+          - flatpak/repo
+          - .flatpak-builder

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SPDX-License-Identifier: GPL-3.0-or-later -->
+<!-- Copyright (C) 2026 JOD -->
+<component type="desktop-application">
+  <id>io.github.jackal_kr.MarkdownViewer</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
+  <name>Markdown Viewer</name>
+  <summary>Read Markdown documents</summary>
+  <description>
+    <p>
+      A lightweight GTK 4 / WebKitGTK viewer for Markdown files. Markdown is
+      rendered by a bundled markdown-it parser, with dark, light and system
+      themes, zoom, and live reload of the current file.
+    </p>
+  </description>
+  <launchable type="desktop-id">io.github.jackal_kr.MarkdownViewer.desktop</launchable>
+  <developer id="io.github.jackal_kr">
+    <name>JOD</name>
+  </developer>
+  <url type="homepage">https://github.com/jackal-kr/mdviewer</url>
+  <url type="bugtracker">https://github.com/jackal-kr/mdviewer/issues</url>
+  <screenshots>
+    <screenshot type="default">
+      <image>https://raw.githubusercontent.com/jackal-kr/mdviewer/main/docs/screenshot.png</image>
+    </screenshot>
+  </screenshots>
+  <content_rating type="oars-1.1"/>
+  <provides>
+    <binary>mdviewer</binary>
+  </provides>
+  <releases>
+    <release version="0.1.0" date="2026-11-17"/>
+  </releases>
+</component>
